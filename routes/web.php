@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,5 +41,14 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::post('/admin/user/{user}/role', [AdminController::class, 'updateRole'])->name('admin.updateRole');
 });
 
+// Afficher la page de chat
+Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
 
-require __DIR__.'/auth.php';
+// Créer un nouveau message
+Route::post('/chat', [ChatController::class, 'store'])->name('chat.create');
+
+// Supprimer un message (accessible uniquement par les administrateurs)
+Route::delete('/chat/{id}', [ChatController::class, 'destroy'])->name('chat.delete');
+
+
+require __DIR__ . '/auth.php';
