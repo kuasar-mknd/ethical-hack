@@ -21,7 +21,11 @@
                         <strong>{{ $message->user->name }}</strong> ({{ $message->created_at }}):
                         {{ $message->content }}
                         @if ($userRole == 'Administrateur')
-                            <a href="{{ route('chat.delete', ['id' => $message->id]) }}">Supprimer</a>
+                            <form action="{{ route('chat.delete', ['id' => $message->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Delete</button>
+                            </form>
                         @endif
                     </p>
                 @endforeach
