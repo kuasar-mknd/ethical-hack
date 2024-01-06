@@ -16,7 +16,7 @@
         @if ($userRole == 'Lecteur' || $userRole == 'Editeur' || $userRole == 'Administrateur')
             <div id="chat-messages">
                 <!-- Afficher les messages du chat ici -->
-                @foreach ($messages as $message)
+                @foreach ($messages->sortBy('created_at') as $message)
                     <p>
                         <strong>{{ $message->user->name }}</strong> ({{ $message->created_at }}):
                         {{ $message->content }}
