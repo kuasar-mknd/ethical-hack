@@ -1,10 +1,10 @@
 <x-app-layout>
-    <x-slot name="header">
+    <x-slot name="header" cl>
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             {{ __('Chat') }}
         </h2>
     </x-slot>
-    <div class="text-lg font-medium text-gray-900 dark:text-white truncate ml-6">
+    <div class="mt-6 text-lg font-medium text-gray-900 dark:text-white truncate ml-6">
         @if (Auth::check())
             @php
                 $userRole = Auth::user()->role;
