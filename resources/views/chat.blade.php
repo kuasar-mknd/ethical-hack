@@ -11,7 +11,7 @@
             @endphp
 
             @if ($userRole == 'Lecteur' || $userRole == 'Editeur' || $userRole == 'Administrateur')
-                <div id="chat-messages" class="max-h-[75vh] overflow-y-auto border border-gray-300 p-4 rounded">
+                <div id="chat-messages" class="max-h-[60vh] overflow-y-auto border border-gray-300 p-4 rounded">
                     <!-- Afficher les messages du chat ici -->
                     @foreach ($messages->sortBy('created_at') as $message)
                         <div class="mb-2">
@@ -39,7 +39,7 @@
                                 required></textarea>
                         </div>
                         <button type="submit"
-                            class="mt-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue active:bg-blue-700">Envoyer</button>
+                            class="my-4 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline-blue active:bg-blue-700">Envoyer</button>
                     </form>
                 @endif
             @else
