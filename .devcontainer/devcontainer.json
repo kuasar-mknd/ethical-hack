@@ -19,13 +19,12 @@
 				"GitHub.copilot-chat",
 				"ms-azuretools.vscode-docker",
 				"VisualStudioExptTeam.vscodeintellicode",
-				"bmewburn.vscode-intelephense-client",
 				"xdebug.php-debug"
 			],
 			"settings": {
 				"editor.formatOnSave": true,
                 "editor.codeActionsOnSave": {
-                    "source.fixAll.eslint": true
+                    "source.fixAll.eslint": "always"
                 },
                 "files.autoSave": "onFocusChange",
                 "prettier.prettierPath": "./node_modules/prettier"
@@ -38,8 +37,7 @@
 	"forwardPorts": [
         80,
         8080,
-        5173,
-        8900
+        5173
     ],
     "portsAttributes": {
         "80": {
@@ -51,9 +49,6 @@
         },
         "5173": {
             "label": "Vite (hmr)"
-        },
-        "8900": {
-            "label": "Minio"
         }
     }// "runServices": [],
 	// "shutdownAction": "none",
