@@ -15,6 +15,14 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @if (Auth::check() && Auth::user()->isAdmin())
+                        <!-- lien conditionnel vers la page admin -->
+                        <x-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                            {{ __('Admin') }}
+                        </x-nav-link>
+                    @endif
+
                     <x-nav-link :href="route('files.index')" :active="request()->routeIs('files.index')">
                         {{ __('Fichiers') }}
                     </x-nav-link>
@@ -84,6 +92,15 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+        </div>
+        <div class="pt-2 pb-3 space-y-1">
+
+            @if (Auth::check() && Auth::user()->isAdmin())
+                <!-- lien conditionnel vers la page admin -->
+                <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
+                    {{ __('Admin') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('files.index')" :active="request()->routeIs('files.index')">
