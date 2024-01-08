@@ -37,21 +37,16 @@ Route::middleware('auth')->group(function () {
     Route::post('/files/upload', [FileController::class, 'upload'])->name('files.upload');
     Route::get('/files/download/{fileId}', [FileController::class, 'download'])->name('files.download');
     Route::delete('/files/delete/{fileId}', [FileController::class, 'delete'])->name('files.delete');
+
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
+    Route::post('/chat', [ChatController::class, 'store'])->name('chat.create');
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::post('/admin/user/{user}/role', [AdminController::class, 'updateRole'])->name('admin.updateRole');
+
+    Route::delete('/chat/{id}', [ChatController::class, 'destroy'])->name('chat.delete');
 });
-
-// Afficher la page de chat
-Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
-
-// Créer un nouveau message
-Route::post('/chat', [ChatController::class, 'store'])->name('chat.create');
-
-// Supprimer un message (accessible uniquement par les administrateurs)
-Route::delete('/chat/{id}', [ChatController::class, 'destroy'])->name('chat.delete');
-
 
 require __DIR__ . '/auth.php';

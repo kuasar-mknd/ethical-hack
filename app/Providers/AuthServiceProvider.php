@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 use App\Models\File;
+use App\Models\Message;
 use App\Policies\FilePolicy;
+use App\Policies\MessagePolicy;
 
 // use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -17,6 +19,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         File::class => FilePolicy::class,
+        Message::class => MessagePolicy::class,
     ];
 
     /**

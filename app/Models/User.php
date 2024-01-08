@@ -12,7 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-/**
+    /**
      * Vérifie si l'utilisateur a le rôle d'administrateur.
      *
      * @return bool
@@ -58,5 +58,10 @@ class User extends Authenticatable
     public function messages()
     {
         return $this->hasMany(Message::class);
+    }
+
+    public function files()
+    {
+        return $this->hasMany(File::class);
     }
 }
