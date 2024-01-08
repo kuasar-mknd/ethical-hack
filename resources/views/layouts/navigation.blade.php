@@ -26,6 +26,9 @@
                     <x-nav-link :href="route('files.index')" :active="request()->routeIs('files.index')">
                         {{ __('Fichiers') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('chat.index')" :active="request()->routeIs('chat.index')">
+                        {{ __('Chat') }}
+                    </x-nav-link>
                 </div>
             </div>
 
