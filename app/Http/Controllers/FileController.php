@@ -20,37 +20,35 @@ class FileController extends Controller
     {
         $this->authorize('viewAny', File::class);
 
-        $files = File::all(); // Récupère tous les fichiers, ajustez selon votre besoin
+        $files = File::all();
         return view('files', compact('files'));
     }
 
     public function upload(Request $request)
     {
         $this->authorize('create', File::class);
-    
+
         $request->validate([
-            'file' => 'required|file|max:2048|mimes:jpg,jpeg,png,pdf,doc,docx', 
+            'file' => 'required|file|max:2048|mimes:jpg,jpeg,png,pdf,doc,docx',
         ]);
-    
+
         $file = $request->file('file');
         $extension = $file->getClientOriginalExtension();
-        $filename = (string) Str::uuid() . '.' . $extension; // Générez un nom de fichier unique
-    
-        // Stockage du fichier dans un répertoire non accessible depuis le web
+        $filename = (string) Str::uuid() . '.' . $extension;
+
         $path = $file->storeAs('files', $filename, 'private');
-    
-        // Enregistrement des informations de fichier
+
         File::create([
-            'name' => $file->getClientOriginalName(), // Stockez le nom original pour référence
-            'path' => $path, // Stockez le chemin sécurisé
+            'name' => $file->getClientOriginalName(),
+            'path' => $path,
             'user_id' => Auth::id(),
         ]);
-    
+
         Log::info('Fichier uploadé', ['user_id' => Auth::id(), 'file_name' => $file->getClientOriginalName()]);
-    
+
         return back()->with('success', 'Fichier uploadé avec succès.');
     }
-    
+
 
     public function download(Request $request, $fileId)
     {
