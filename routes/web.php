@@ -29,12 +29,12 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy')->middleware('password.confirm');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy')->middleware('password.confirm:password.confirm,1');
 
     Route::get('/files', [FileController::class, 'index'])->name('files.index');
     Route::post('/files/upload', [FileController::class, 'upload'])->name('files.upload');
     Route::get('/files/download/{fileId}', [FileController::class, 'download'])->name('files.download');
-    Route::delete('/files/delete/{fileId}', [FileController::class, 'delete'])->name('files.delete');
+    Route::delete('/files/delete/{fileId}', [FileController::class, 'delete'])->name('files.delete')->middleware('password.confirm:password.confirm,1');
 
     Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
     Route::post('/chat', [ChatController::class, 'store'])->name('chat.create');
@@ -42,10 +42,10 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::post('/admin/user/{user}/role', [AdminController::class, 'updateRole'])->name('admin.updateRole')->middleware('password.confirm');
+    Route::post('/admin/user/{user}/role', [AdminController::class, 'updateRole'])->name('admin.updateRole')->middleware('password.confirm:password.confirm,1');
     Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
 
-    Route::delete('/chat/{id}', [ChatController::class, 'destroy'])->name('chat.delete');
+    Route::delete('/chat/{id}', [ChatController::class, 'destroy'])->name('chat.delete')->middleware('password.confirm:password.confirm,1');
 });
 
 require __DIR__ . '/auth.php';
