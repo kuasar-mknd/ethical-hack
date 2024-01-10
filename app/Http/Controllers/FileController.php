@@ -55,7 +55,7 @@ class FileController extends Controller
         $file = File::findOrFail($fileId);
         $this->authorize('download', File::class);
 
-        if (! Storage::disk('private')->exists($file->path)) {
+        if (!Storage::disk('private')->exists($file->path)) {
             abort(404);
         }
 
@@ -69,7 +69,7 @@ class FileController extends Controller
         $file = File::findOrFail($fileId);
         $this->authorize('delete', $file);
 
-        if (! Storage::disk('private')->exists($file->path)) {
+        if (!Storage::disk('private')->exists($file->path)) {
             abort(404);
         }
 

@@ -18,7 +18,7 @@ class AdminController extends Controller
     //fonction pour aller chercher les utilisateurs
     public function index()
     {
-        $users = User::paginate(10);
+        $users = User::all();
         return view('admin_dashboard', compact('users'));
     }
     //fonction pour mettre à jour un utilisateur
@@ -51,8 +51,7 @@ class AdminController extends Controller
                 $query->where('name', 'like', "%{$search}%")
                     ->orWhere('email', 'like', "%{$search}%");
             })
-            ->paginate(10)
-            ->appends(['search' => $search]); // Attacher la recherche à la pagination
+            ->appends(['search' => $search]);
 
 
         Log::info('Recherche effectuée par l\'utilisateur ' . Auth::id() . ' avec le terme ' . $search);

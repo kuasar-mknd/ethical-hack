@@ -42,7 +42,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::post('/admin/user/{user}/role', [AdminController::class, 'updateRole'])->name('admin.updateRole');
+    Route::post('/admin/user/{user}/role', [AdminController::class, 'updateRole'])->name('admin.updateRole')->middleware('password.confirm');
     Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
 
     Route::delete('/chat/{id}', [ChatController::class, 'destroy'])->name('chat.delete');
