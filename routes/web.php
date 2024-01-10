@@ -41,7 +41,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard')->middleware('password.confirm:password.confirm,1');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::post('/admin/user/{user}/role', [AdminController::class, 'updateRole'])->name('admin.updateRole');
     Route::get('/admin/search', [AdminController::class, 'search'])->name('admin.search');
 
