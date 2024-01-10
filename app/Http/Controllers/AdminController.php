@@ -46,12 +46,9 @@ class AdminController extends Controller
         $search = $request->input('search');
 
         // Récupérer les utilisateurs en fonction de la recherche
-        $users = User::query()
-            ->when($search, function ($query) use ($search) {
-                $query->where('name', 'like', "%{$search}%")
-                    ->orWhere('email', 'like', "%{$search}%");
-            })
-            ->appends(['search' => $search]);
+        $users = User::where('email', 'like', '%' . $search . '%')
+            ->orWhere('name', 'like', '%' . $search . '%')
+            ->get();
 
 
         Log::info('Recherche effectuée par l\'utilisateur ' . Auth::id() . ' avec le terme ' . $search);
