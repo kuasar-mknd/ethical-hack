@@ -43,9 +43,16 @@
                                         Désactivé
                                     </option>
                                 </select>
+                                <label for="password"
+                                    class="block text-sm font-medium text-gray-700 dark:text-gray-300 mt-4">Mot de Passe
+                                    Administrateur</label>
+                                <input type="password" name="password" id="password"
+                                    class="form-input mt-1 block w-full" placeholder="Entrez votre mot de passe"
+                                    required>
+
                                 <button type="submit"
                                     class="mt-4 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                                    Modifier
+                                    Valider le Changement
                                 </button>
                             </form>
                         </div>

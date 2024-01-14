@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
@@ -29,7 +30,13 @@ class AdminController extends Controller
         //validation des données
         $validatedData = $request->validate([
             'role' => 'required|in:Administrateur,Editeur,Lecteur,Invité,Désactivé',
+            'password' => 'required',
         ]);
+
+        if (!Hash::check($request->password, Auth::user()->password)) {
+            Log::warning('Tentative de mise à jour du rôle de l\'utilisateur ' . $user->id . ' par l\'utilisateur ' . Auth::id() . ' avec un mot de passe incorrect.');
+            return back()->withErrors(['password' => 'Le mot de passe est incorrect.']);
+        }
 
         // Mettre à jour le rôle de l'utilisateur
         $user->update(['role' => $validatedData['role']]);
