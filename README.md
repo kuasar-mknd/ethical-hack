@@ -154,6 +154,12 @@ Une politique de sécurité du contenu (CSP) a été mise en place pour réduire
 >Stratégies de Sauvegarde : Mettre en place des stratégies de sauvegarde régulières et fiables pour prévenir la perte de données.
 >Plans de Récupération en Cas de Sinistre : Élaborer des procédures de récupération en cas de sinistre pour garantir la continuité des activités en cas de défaillance majeure.
 
+## 6. Ajout d'une authentification OAuth
+>[Laravel Socialite](https://laravel.com/docs/10.x/socialite) gère l'authentification OAuth avec divers fournisseurs, rendant le processus d'authentification avec des services externes comme Google assez simple et direct.
+
+## 7. Ajout authentification 2 facteurs
+>Mise en place de Laravel [Fortify](https://laravel.com/docs/10.x/fortify). Laravel Fortify offre une prise en charge intégrée de la 2FA. Bien que Breeze n'inclue pas Fortify par défaut, ils peuvent être utilisés ensemble. Fortify fournit le backend pour l'authentification, y compris la 2FA, tandis que Breeze fournit le frontend. Il serait intéressant de remplacer toute l'authentification actuelle (breeze) par Fortify qui est bien plus avancé et sécurisé
+
 
 # Problèmes Rencontrés
 ## Validation de l'Identité de l'Administrateur pour Actions Sensibles
