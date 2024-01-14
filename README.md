@@ -167,24 +167,19 @@ Cependant, cette solution présente une certaine limitation : elle n'est pas ver
 
 # Technologies et Librairies Utilisées
 ## Laravel 10.10
-
->Utilisation : Laravel est le framework principal de notre application. Il offre une base solide avec une architecture élégante et une variété de fonctionnalités pour le développement rapide d'applications web.
+>Laravel est le framework principal de notre application. Il offre une base solide avec une architecture élégante et une variété de fonctionnalités pour le développement rapide d'applications web.
 
 ## PHP 8.3
-
->Utilisation : PHP est le langage de programmation utilisé pour le développement du backend. La version 8.1 apporte des améliorations de performance et de nouvelles fonctionnalités telles que les types enum, les propriétés en lecture seule, et plus encore.
+>PHP est le langage de programmation utilisé pour le développement du backend. La version 8.1 apporte des améliorations de performance et de nouvelles fonctionnalités telles que les types enum, les propriétés en lecture seule, et plus encore.
 
 ## Guzzle ^7.2
-
->Utilisation : Guzzle est une bibliothèque PHP pour la création de requêtes HTTP. Elle est utilisée pour communiquer avec des API externes et des services web de manière efficace et flexible.
+>Guzzle est une bibliothèque PHP pour la création de requêtes HTTP. Elle est utilisée pour communiquer avec des API externes et des services web de manière efficace et flexible.
 
 ## Laravel Tinker ^2.8
-
->Utilisation : Laravel Tinker est une console REPL (Read-Eval-Print Loop) puissante pour Laravel. Elle permet d'interagir avec l'ensemble de l'application depuis la ligne de commande, facilitant le test et le débogage.
+>Laravel Tinker est une console REPL (Read-Eval-Print Loop) puissante pour Laravel. Elle permet d'interagir avec l'ensemble de l'application depuis la ligne de commande, facilitant le test et le débogage.
 
 ## Spatie Laravel CSP ^2.8
-
->Utilisation : Cette bibliothèque de Spatie permet de facilement configurer une politique de sécurité du contenu (CSP) pour Laravel, augmentant la sécurité de l'application en définissant des règles strictes sur les ressources chargées par le navigateur.
+> Cette bibliothèque de Spatie permet de facilement configurer une politique de sécurité du contenu (CSP) pour Laravel, augmentant la sécurité de l'application en définissant des règles strictes sur les ressources chargées par le navigateur.
 
 ## Dépendances de Développement
 * Laravel Breeze ^1.27
