@@ -86,7 +86,11 @@ Policies et Middleware d'Authentification :
 
 Nous avons utilisé les policies de Laravel pour gérer finement les autorisations d'accès et de modification des ressources. Le middleware d'authentification de Laravel Breeze a été employé pour sécuriser les routes et garantir que seuls les utilisateurs autorisés peuvent accéder à certaines fonctionnalités.
 
-La vérification des rôles pour chaque action se fait dans les [Policies](Policies)
+La vérification des rôles pour chaque action se fait dans les [Policies](app/Policies)
+
+[Les contrôleurs](app/Http/Controllers)
+
+[Les middleware](app/Http/Middleware)
 
 ## 3. Sécurisation des Fichiers
 
