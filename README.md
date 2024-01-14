@@ -180,7 +180,7 @@ Cependant, cette solution présente une certaine limitation : elle n'est pas ver
 >Laravel est le framework principal de notre application. Il offre une base solide avec une architecture élégante et une variété de fonctionnalités pour le développement rapide d'applications web.
 
 ## PHP 8.3
->PHP est le langage de programmation utilisé pour le développement du backend. La version 8.1 apporte des améliorations de performance et de nouvelles fonctionnalités telles que les types enum, les propriétés en lecture seule, et plus encore.
+>PHP est le langage de programmation utilisé pour le développement du backend. La version 8.3 apporte des améliorations de performance et de nouvelles fonctionnalités telles que les types enum, les propriétés en lecture seule, et plus encore.
 
 ## Guzzle ^7.2
 >Guzzle est une bibliothèque PHP pour la création de requêtes HTTP. Elle est utilisée pour communiquer avec des API externes et des services web de manière efficace et flexible.
