@@ -13,7 +13,7 @@
             @if ($userRole == 'Lecteur' || $userRole == 'Editeur' || $userRole == 'Administrateur')
                 <div id="chat-messages" class="max-h-[60vh] overflow-y-auto border border-gray-300 p-4 rounded">
                     <!-- Afficher les messages du chat ici -->
-                    @foreach ($messages->sortBy('created_at') as $message)
+                    @foreach ($messages->sortByDesc('created_at') as $message)
                         <div class="mb-2">
                             <strong>{{ $message->user->name }}</strong> ({{ $message->created_at }}):
                             <p class=" p-2 rounded">{{ $message->content }}</p>
@@ -49,4 +49,15 @@
             <p>Veuillez vous connecter pour accéder au chat.</p>
         @endif
     </div>
+
+    <style>
+        #chat-messages {
+            display: flex;
+            flex-direction: column-reverse;
+            /* Inverser l'ordre des éléments */
+            overflow-y: auto;
+            max-height: 60vh;
+        }
+    </style>
+
 </x-app-layout>
